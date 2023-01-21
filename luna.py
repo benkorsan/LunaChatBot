@@ -79,13 +79,7 @@ async def chat(_, message):
 
 
 
-@luna.on_message(
-    ~filters.private
-    & filters.text
-    & ~filters.command("help")
-    & ~filters.edited,
-    group=69,
-)
+
 async def chat(_, message):
 async def ai(_, message: Message):
     if message.reply_to_message and message.reply_to_message.from_user.id 
