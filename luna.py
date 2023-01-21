@@ -88,7 +88,7 @@ async def chat(_, message):
 )
 async def chat(_, message):
 async def ai(_, message: Message):
-    if message.reply_to_message and message.reply_to_message.from_user.id == BOT_ID:
+    if message.reply_to_message and message.reply_to_message.from_user.id 
         ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={message.text}", timeout=3).json()["response"]
         print(ai_gen)
         await luna.send_message(chat_id=message.chat.id ,text=ai_gen , reply_to_message_id=message.id)
