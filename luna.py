@@ -50,20 +50,7 @@ async def type_and_send(message):
     await message._client.send_chat_action(chat_id, "cancel")
 
 
-@luna.on_message(filters.command("repo") & ~filters.edited)
-async def repo(_, message):
-    await message.reply_text(
-        "[GitHub](https://github.com/thehamkercat/LunaChatBot)"
-        + " | [Group](t.me/PatheticProgrammers)",
-        disable_web_page_preview=True,
-    )
 
-
-@luna.on_message(filters.command("help") & ~filters.edited)
-async def start(_, message):
-    await luna.send_chat_action(message.chat.id, "typing")
-    await sleep(2)
-    await message.reply_text("/repo - Get Repo Link")
 
 
 @luna.on_message(
@@ -82,7 +69,7 @@ async def chat(_, message):
             return
     else:
         match = re.search(
-            "[.|\n]{0,}luna[.|\n]{0,}",
+            "[.|\n]{0,}iyi[.|\n]{0,}",
             message.text.strip(),
             flags=re.IGNORECASE,
         )
@@ -91,14 +78,29 @@ async def chat(_, message):
     await type_and_send(message)
 
 
-@luna.on_message(
-    filters.private & ~filters.command("help") & ~filters.edited
-)
-async def chatpm(_, message):
-    if not message.text:
-        return
-    await type_and_send(message)
 
+@luna.on_message(
+    ~filters.private
+    & filters.text
+    & ~filters.command("help")
+    & ~filters.edited,
+    group=69,
+)
+async def chat(_, message):
+async def ai(_, message: Message):
+    if message.reply_to_message and message.reply_to_message.from_user.id == BOT_ID:
+        ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={message.text}", timeout=3).json()["response"]
+        print(ai_gen)
+        await luna.send_message(chat_id=message.chat.id ,text=ai_gen , reply_to_message_id=message.id)
+
+    
+
+@luna.on_message(filters.command(commands=["harley"] , prefixes="@"))
+async def username(_, message: Message):
+    fixed_text = message.text.replace("Ha ", "Sa")
+    ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={fixed_text}", timeout=5).json()["response"]
+    print(ai_gen)
+    await luna.send_message(chat_id=message.chat.id ,text=ai_gen, reply_to_message_id=message.id)
 
 async def main():
     global arq
