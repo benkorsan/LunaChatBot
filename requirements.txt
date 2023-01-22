@@ -3,3 +3,4 @@ python-arq
 TgCrypto
 python-dotenv
 pymongo
+requests
