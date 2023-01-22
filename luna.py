@@ -83,7 +83,7 @@ async def chat(_, message: Message):
     if message.reply_to_message and message.reply_to_message.from_user.id == BOT_ID:
         ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={message.text}", timeout=5).json()["response"]
         print(ai_gen)
-        await neko.send_message(chat_id=message.chat.id ,text=ai_gen , reply_to_message_id=message.id)
+        await luna.send_message(chat_id=message.chat.id ,text=ai_gen , reply_to_message_id=message.id)
 
     
 
@@ -92,7 +92,7 @@ async def username(_, message: Message):
     fixed_text = message.text.replace("@MissHarleyy_bot", "")
     ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={fixed_text}", timeout=5).json()["response"]
     print(ai_gen)
-    await neko.send_message(chat_id=message.chat.id ,text=ai_gen, reply_to_message_id=message.id)
+    await luna.send_message(chat_id=message.chat.id ,text=ai_gen, reply_to_message_id=message.id)
 
 
 
