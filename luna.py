@@ -78,10 +78,21 @@ async def chat(_, message):
             return
     await type_and_send(message)
 
-@luna.on_message(filters.text, group=100)
-async def chat(_, message: Message):
-    if message.reply_to_message and message.reply_to_message.from_user.id 
-     if from_user_id != bot_id:
+async def chat(_, message):
+    if message.reply_to_message:
+        if not message.reply_to_message.from_user:
+            return
+        from_user_id = message.reply_to_message.from_user.id
+        if from_user_id != bot_id:
+            return
+    else:
+        match = re.search(
+            "[.|\n]{0,}iyi, [.|\n]{0,}",
+            message.text.strip(),
+            flags=re.IGNORECASE,
+        )
+        if not match:
+            return
         ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={message.text}", timeout=5).json()["response"]
         print(ai_gen)
         await luna.send_message(chat_id=message.chat.id ,text=ai_gen , reply_to_message_id=message.id)
