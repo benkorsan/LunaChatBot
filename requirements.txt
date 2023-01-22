@@ -1,3 +1,5 @@
 pyrogram==1.4.16
 python-arq
 TgCrypto
+python-dotenv
+pymongo
