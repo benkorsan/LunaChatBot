@@ -13,4 +13,4 @@ DB_URL = getenv("DB_URL")
 DB_NAME = getenv("DB_NAME")
 
 neko = Client(name="aichan", api_hash=API_HASH, api_id=API_ID,
-              bot_token=TOKEN,)
+              bot_token=TOKEN)
