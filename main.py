@@ -1,11 +1,19 @@
-from config import neko
 from pyrogram import filters, Client 
 from pyrogram.types import Message
 import requests
-from config import , BOT_ID
+
+
+is_config = os.path.exists("config.py")
+
+if is_config:
+    from config import *
+else:
+    from sample_config import *
 
 neko = Client(name="aichan", api_hash=API_HASH, api_id=API_ID,
               bot_token=TOKEN,)
+
+bot_id = int(bot_token.split(":")[0])
 
 @neko.on_message(filters.text, group=100)
 async def ai(_, message: Message):
