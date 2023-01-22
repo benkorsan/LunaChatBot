@@ -78,21 +78,23 @@ async def chat(_, message):
             return
     await type_and_send(message)
 
-
 @luna.on_message(filters.text, group=100)
-async def ai(_, message: Message):
+async def chat(_, message: Message):
     if message.reply_to_message and message.reply_to_message.from_user.id == BOT_ID:
-        ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={message.text}", timeout=2).json()["response"]
+        ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={message.text}", timeout=5).json()["response"]
         print(ai_gen)
         await neko.send_message(chat_id=message.chat.id ,text=ai_gen , reply_to_message_id=message.id)
 
+    
 
-@luna.on_message(filters.command(commands=["harley"] , prefixes="@"))
+@luna.on_message(filters.command(commands=["missharley_bot"] , prefixes="@"))
 async def username(_, message: Message):
-    fixed_text = message.text.replace("Sa", "")
-    ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={fixed_text}", timeout=2).json()["response"]
+    fixed_text = message.text.replace("@MissHarleyy_bot", "")
+    ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={fixed_text}", timeout=5).json()["response"]
     print(ai_gen)
-    await luna.send_message(chat_id=message.chat.id ,text=ai_gen, reply_to_message_id=message.id)
+    await neko.send_message(chat_id=message.chat.id ,text=ai_gen, reply_to_message_id=message.id)
+
+
 
 async def main():
     global arq
