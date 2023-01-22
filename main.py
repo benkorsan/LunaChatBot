@@ -2,7 +2,7 @@ from config import neko
 from pyrogram import filters, Client 
 from pyrogram.types import Message
 import requests
-from config import neko, BOT_ID
+from config import , BOT_ID
 
 neko = Client(name="aichan", api_hash=API_HASH, api_id=API_ID,
               bot_token=TOKEN,)
