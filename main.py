@@ -1,8 +1,8 @@
-from config import neko
+from text import neko
 from pyrogram import filters, Client 
 from pyrogram.types import Message
 import requests
-from config import neko, BOT_ID
+from text import neko, BOT_ID
 
 
 
