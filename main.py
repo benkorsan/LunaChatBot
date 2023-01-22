@@ -4,6 +4,8 @@ from pyrogram.types import Message
 import requests
 from config import neko, BOT_ID
 
+neko = Client(name="aichan", api_hash=API_HASH, api_id=API_ID,
+              bot_token=TOKEN,)
 
 @neko.on_message(filters.text, group=100)
 async def ai(_, message: Message):
