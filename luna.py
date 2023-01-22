@@ -1,7 +1,8 @@
 import re
 import os
 from asyncio import gather, get_event_loop, sleep
-
+from pyrogram import filters, Client 
+from pyrogram.types import Message
 from aiohttp import ClientSession
 from pyrogram import Client, filters, idle
 from Python_ARQ import ARQ
