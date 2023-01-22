@@ -1,5 +1,6 @@
 import re
 import os
+import requests
 from asyncio import gather, get_event_loop, sleep
 from pyrogram import filters, Client 
 from pyrogram.types import Message
