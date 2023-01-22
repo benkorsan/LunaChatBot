@@ -29,6 +29,11 @@
            "description": "ARQ URL ,Don't Change It",
            "value": "https://arq.hamker.in",
            "required": true
+    },
+    "BOT_ID": {
+           "description": "ARQ URL ,Don't Change It",
+           "value": "",
+           "required": true
     }
   },
   "buildpacks": [
