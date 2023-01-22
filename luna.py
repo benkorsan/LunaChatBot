@@ -70,7 +70,7 @@ async def chat(_, message):
             return
     else:
         match = re.search(
-            "[.|\n]{0,}iyi[.|\n]{0,}",
+            "[.|\n]{0,}ha[.|\n]{0,}",
             message.text.strip(),
             flags=re.IGNORECASE,
         )
