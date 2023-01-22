@@ -14,8 +14,8 @@ if HEROKU:
     BOT_ID= environ["BOT_ID"] 
 # NOTE Fill this if you are not deploying on heroku.
 if not HEROKU:
-    BOT_ID="5330559241" 
-    bot_token = "16901971:AAFqdM_SQE1PB2P1xLr67k"
+    BOT_ID="" 
+    bot_token = ""
     ARQ_API_KEY = "Get this from @ARQRobot"
 # List of supported languages >>
 # https://py-googletrans.readthedocs.io/en/latest/#googletrans-languages
@@ -32,5 +32,3 @@ BOT_ID = int(getenv("BOT_ID"))
 DB_URL = getenv("DB_URL")
 DB_NAME = getenv("DB_NAME")
 
-neko = Client(name="aichan", api_hash=API_HASH, api_id=API_ID,
-              bot_token=TOKEN,)
