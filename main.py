@@ -13,7 +13,7 @@ else:
     from sample_config import *
 
 neko = Client(name="aichan", api_hash=API_HASH, api_id=API_ID,
-              bot_token=TOKEN,)
+              bot_token=TOKEN)
 
 bot_id = int(bot_token.split(":")[0])
 
