@@ -3,6 +3,15 @@ from pyrogram import Client
 from os import getenv
 from dotenv import load_dotenv
 
+API_HASH = getenv("API_HASH")
+API_ID = int(getenv("API_ID"))
+TOKEN = getenv("TOKEN")
+OWNERID = int(getenv("OWNERID"))  # your userid
+BOT_ID = int(getenv("BOT_ID"))
+DB_URL = getenv("DB_URL")
+DB_NAME = getenv("DB_NAME")
+
+
 HEROKU = True # Make it False if you're not deploying on heroku.
 
 if HEROKU:
@@ -24,11 +33,4 @@ if not HEROKU:
 # Leave it as it is
 ARQ_API_BASE_URL = "https://arq.hamker.in"
 load_dotenv()
-API_HASH = getenv("API_HASH")
-API_ID = int(getenv("API_ID"))
-TOKEN = getenv("TOKEN")
-OWNERID = int(getenv("OWNERID"))  # your userid
-BOT_ID = int(getenv("BOT_ID"))
-DB_URL = getenv("DB_URL")
-DB_NAME = getenv("DB_NAME")
 
