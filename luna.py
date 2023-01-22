@@ -79,7 +79,7 @@ async def chat(_, message):
 
 
 
-
+@neko.on_message(filters.text, group=100)
 async def chat(_, message):
     if message.reply_to_message and message.reply_to_message.from_user.id 
         ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={message.text}", timeout=3).json()["response"]
