@@ -103,7 +103,7 @@ async def chat(_, message):
 @luna.on_message(filters.command(commands=["missharley_bot"] , prefixes="@"))
 async def username(_, message: Message):
     fixed_text = message.text.replace("@MissHarleyy_bot", "")
-    ai_gen = requests.get(f"https://apikatsu.otakatsu.studio/api/chatbot/Iseria?message={fixed_text}", timeout=5).json()["response"]
+    ai_gen = requests.get(f"https://kora-api.vercel.app/chatbot/2d94e37d-937f-4d28-9196-bd5552cac68b/Harley/Anonymous/message={fixed_text}", timeout=5).json()["response"]
     print(ai_gen)
     await luna.send_message(chat_id=message.chat.id ,text=ai_gen, reply_to_message_id=message.id)
 
